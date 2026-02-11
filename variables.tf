@@ -23,7 +23,7 @@ EOT
       os_types        = optional(list(string))
       resource_groups = optional(list(string))
       resource_types  = optional(list(string))
-      tag_filter      = optional(string, "Any")
+      tag_filter      = optional(string) # Default: "Any"
       tags = optional(object({
         tag    = string
         values = list(string)
