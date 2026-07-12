@@ -1,3 +1,7 @@
+output "maintenance_assignment_dynamic_scopes_id" {
+  description = "Map of id values across all maintenance_assignment_dynamic_scopes, keyed the same as var.maintenance_assignment_dynamic_scopes"
+  value       = { for k, v in azurerm_maintenance_assignment_dynamic_scope.maintenance_assignment_dynamic_scopes : k => v.id }
+}
 output "maintenance_assignment_dynamic_scopes_filter" {
   description = "Map of filter values across all maintenance_assignment_dynamic_scopes, keyed the same as var.maintenance_assignment_dynamic_scopes"
   value       = { for k, v in azurerm_maintenance_assignment_dynamic_scope.maintenance_assignment_dynamic_scopes : k => v.filter }
