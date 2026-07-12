@@ -11,7 +11,7 @@ resource "azurerm_maintenance_assignment_dynamic_scope" "maintenance_assignment_
     resource_types  = each.value.filter.resource_types
     tag_filter      = each.value.filter.tag_filter
     dynamic "tags" {
-      for_each = each.value.filter.tags != null ? [each.value.filter.tags] : []
+      for_each = each.value.filter.tags != null ? each.value.filter.tags : []
       content {
         tag    = tags.value.tag
         values = tags.value.values
