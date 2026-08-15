@@ -4,7 +4,7 @@ output "maintenance_assignment_dynamic_scopes_id" {
 }
 output "maintenance_assignment_dynamic_scopes_filter" {
   description = "Map of filter values across all maintenance_assignment_dynamic_scopes, keyed the same as var.maintenance_assignment_dynamic_scopes"
-  value       = { for k, v in azurerm_maintenance_assignment_dynamic_scope.maintenance_assignment_dynamic_scopes : k => v.filter if v.filter != null && length(v.filter) > 0 }
+  value       = { for k, v in azurerm_maintenance_assignment_dynamic_scope.maintenance_assignment_dynamic_scopes : k => one(v.filter) if v.filter != null && length(v.filter) > 0 }
 }
 output "maintenance_assignment_dynamic_scopes_maintenance_configuration_id" {
   description = "Map of maintenance_configuration_id values across all maintenance_assignment_dynamic_scopes, keyed the same as var.maintenance_assignment_dynamic_scopes"
